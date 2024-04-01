@@ -31,7 +31,7 @@ class MainPage(Screen):
         layout.add_widget(button) 
 
         button = Button(
-            text=f'WŁĄCZ / WYŁĄCZ NA STAŁE', 
+            text=f'WŁĄCZ / WYŁĄCZ ŚWIATŁO', 
             size_hint=(None, None), 
             size=(button_width, button_height), 
             background_color=(1, 0, 0, 1),
@@ -75,7 +75,7 @@ class MainPage(Screen):
     
     def reset_time(self, instance):
         try:
-            res = requests.get(SERVER + "", timeout=2.50).text
+            res = requests.get(SERVER + "", timeout=2.5).text
         except:
             res = "500"
         self.label.text = res
