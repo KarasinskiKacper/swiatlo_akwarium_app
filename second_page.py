@@ -98,7 +98,7 @@ class SecondPage(Screen):
             background_color=(0, 1, 0, 1),
             pos_hint={'center_x': 0.5 - (button_width/4/Window.width), 'center_y': 1 - (3)*((button_height + button_spacing) / Window.height)}
         )
-        button.bind(on_press=self.req_forserelayto)
+        button.bind(on_press=self.req_forserelayto_on)
         layout.add_widget(button)
         
         button = Button(
