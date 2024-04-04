@@ -136,17 +136,32 @@ class SecondPage(Screen):
             pos_hint={'center_x': 0.5 + (button_width/4/Window.width), 'center_y': 1 - (5)*((button_height + button_spacing) / Window.height)}
         )
         layout.add_widget(button)
+        
+        button = Button(
+            text=f'POWRÓT', 
+            size_hint=(None, None), 
+            size=(button_width, button_height), 
+            background_color=(1, 0, 0, 1), 
+            pos_hint={'center_x': 0.5, 'center_y': 1 - (6)*((button_height + button_spacing) / Window.height)}
+        )
+        button.bind(on_press=self.switch_to_main_page)
+        layout.add_widget(button)
+        
         self.res_label = Label(
             text="res", 
             font_size = button_height/3,
             size_hint=(None, None), 
             size=(button_width, button_height), 
             color = "ff0000",
-            pos_hint={'center_x': 0.5, 'center_y': 1 - (6)*((button_height + button_spacing) / Window.height)}
+            pos_hint={'center_x': 0.5, 'center_y': 1 - (7)*((button_height + button_spacing) / Window.height)}
         )
         layout.add_widget(self.res_label)
         
+        
         self.add_widget(layout)
+        
+    def switch_to_main_page(self, instance):
+        self.parent.current = 'main'
 
     def req_forserelayto_on(self, instance):
         try:

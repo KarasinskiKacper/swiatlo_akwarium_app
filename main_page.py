@@ -21,13 +21,13 @@ class MainPage(Screen):
         button_spacing = 16
         
         button = Button(
-            text="RESET CZASU", 
+            text="TRYB AUTO", 
             size_hint=(None, None), 
             size=(button_width, button_height), 
-            background_color=(0, 1, 0, 1), 
+            background_color=(1, 1, 0, 1), 
             pos_hint={'center_x': 0.5, 'center_y': 1 - (1)*((button_height + button_spacing) / Window.height)}
         )
-        button.bind(on_press=self.reset_time)
+        button.bind(on_press=self.auto)
         layout.add_widget(button) 
 
         button = Button(
@@ -60,7 +60,7 @@ class MainPage(Screen):
         
         self.add_widget(layout)
         try:
-            res = requests.get(SERVER + "/date", timeout=2.50).text
+            res = requests.get(SERVER + "/date", timeout=.1).text
         except:
             res = "500"
         self.label = Label(
@@ -73,9 +73,9 @@ class MainPage(Screen):
         
         # return layout
     
-    def reset_time(self, instance):
+    def auto(self, instance):
         try:
-            res = requests.get(SERVER + "", timeout=2.5).text
+            res = requests.get(SERVER + "/auto", timeout=.1).text
         except:
             res = "500"
         self.label.text = res
