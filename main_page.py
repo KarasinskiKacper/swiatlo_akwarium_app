@@ -68,7 +68,7 @@ class MainPage(Screen):
         try:
             res = requests.get(SERVER + "/date", timeout=2.5).text
         except:
-            res = "Błąd połączenia z mikrokontrolerem."
+            res = "Błąd połączenia\n z mikrokontrolerem."
         self.label = Label(
             text=res,
             font_size = font_size,

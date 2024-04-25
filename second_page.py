@@ -178,7 +178,7 @@ class SecondPage(Screen):
                 requests.get(f"{SERVER}/forserelayto?power=on&time={self.input_box1.text}{self.input_box2.text}", timeout=2.5)
                 res = f"Światło włączone do {self.input_box1.text}:{self.input_box2.text}"
             except:
-                res = "Błąd połączenia z mikrokontrolerem."
+                res = "Błąd połączenia\n z mikrokontrolerem."
         else: 
             res = "Podaj godzinę"
         self.res_label.text = str(res)
@@ -188,7 +188,7 @@ class SecondPage(Screen):
                 requests.get(f"{SERVER}/forserelayto?power=off&time={self.input_box1.text}{self.input_box2.text}", timeout=2.5)
                 res = f"Światło wyłączone do {self.input_box1.text}:{self.input_box2.text}"
             except:
-                res = "Błąd połączenia z mikrokontrolerem."
+                res = "Błąd połączenia\n z mikrokontrolerem."
             
         else: 
             res = "Podaj godzinę"
@@ -198,14 +198,14 @@ class SecondPage(Screen):
             requests.get(f"{SERVER}/forserelayto?power=on", timeout=2.5)
             res = "Światło włączone na stałe"
         except:
-            res = "Błąd połączenia z mikrokontrolerem."
+            res = "Błąd połączenia\n z mikrokontrolerem."
         self.res_label.text = res
     def req_forserelay_off(self, instance):
         try:
             requests.get(f"{SERVER}/forserelayto?power=off", timeout=2.5)
             res = "Światło wyłączone na stałe"
         except:
-            res = "Błąd połączenia z mikrokontrolerem."
+            res = "Błąd połączenia\n z mikrokontrolerem."
         self.res_label.text = res
 
     
