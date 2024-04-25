@@ -9,7 +9,7 @@ from kivy.core.window import Window
 import requests
 
 SERVER = "http://192.168.0.115"
-
+SCALE = 4
 class My_TextInput1(TextInput):
     def __init__(self, **kwargs):
         super(My_TextInput1, self).__init__(**kwargs) 
@@ -48,17 +48,17 @@ class SecondPage(Screen):
         layout = RelativeLayout()
         
         # Create four buttons
-        button_height = 300
-        button_width = 800
-        button_spacing = 128
-        font_size = 48
+        button_height = 300/SCALE
+        button_width = 800/SCALE
+        button_spacing = 128/SCALE
+        font_size = 48/SCALE
 
         label = Label(
             text=f'DO GODZINY:', 
-            font_size = font_size,
+            font_size = font_size*2,
             size_hint=(None, None), 
             size=(button_width, button_height), 
-            pos_hint={'center_x': 0.5, 'center_y': 1 - (1)*((button_height + button_spacing) / Window.height)}
+            pos_hint={'center_x': 0.5, 'center_y': 1 - (1)*((button_spacing) / Window.height)}
         )
         layout.add_widget(label)
         
@@ -67,7 +67,7 @@ class SecondPage(Screen):
             font_size = font_size,
             size_hint=(None, None), 
             size=(button_width/3, button_height), 
-            pos_hint={'center_x': 0.42, 'center_y': 1 - (2)*((button_height + button_spacing) / Window.height)},
+            pos_hint={'center_x': 0.42, 'center_y': 1 - (1)*((button_height + button_spacing) / Window.height)},
             halign = 'center',
             padding_y = [button_height / 2 - (button_height / 4), 0],
             text = ''
@@ -75,8 +75,8 @@ class SecondPage(Screen):
         layout.add_widget(self.input_box1)
         label = Label(
             text=f':', 
-            font_size = font_size,
-            pos_hint={'center_x': 0.5, 'center_y': 1 - (2)*((button_height + button_spacing) / Window.height)}
+            font_size = button_height/2,
+            pos_hint={'center_x': 0.5, 'center_y': 1 - (1)*((button_height + button_spacing) / Window.height)}
         )
         layout.add_widget(label)
         self.input_box2 = My_TextInput2(
@@ -84,7 +84,7 @@ class SecondPage(Screen):
             font_size = font_size,
             size_hint=(None, None), 
             size=(button_width/3, button_height), 
-            pos_hint={'center_x': 0.58, 'center_y': 1 - (2)*((button_height + button_spacing) / Window.height)},
+            pos_hint={'center_x': 0.58, 'center_y': 1 - (1)*((button_height + button_spacing) / Window.height)},
             halign = 'center',
             padding_y = [button_height / 2 - (button_height / 4), 0],
             text = ''
@@ -98,7 +98,7 @@ class SecondPage(Screen):
             size_hint=(None, None), 
             size=(button_width/2, button_height), 
             background_color=(0, 1, 0, 1),
-            pos_hint={'center_x': 0.5 - (button_width/4/Window.width), 'center_y': 1 - (3)*((button_height + button_spacing) / Window.height)}
+            pos_hint={'center_x': 0.5 - (button_width/4/Window.width), 'center_y': 1 - (2)*((button_height + button_spacing) / Window.height)}
         )
         button.bind(on_press=self.req_forserelayto_on)
         layout.add_widget(button)
@@ -109,17 +109,17 @@ class SecondPage(Screen):
             size_hint=(None, None), 
             size=(button_width/2, button_height), 
             background_color=(1, 0, 0, 1), 
-            pos_hint={'center_x': 0.5 + (button_width/4/Window.width), 'center_y': 1 - (3)*((button_height + button_spacing) / Window.height)}
+            pos_hint={'center_x': 0.5 + (button_width/4/Window.width), 'center_y': 1 - (2)*((button_height + button_spacing) / Window.height)}
         )
         button.bind(on_press=self.req_forserelayto_off)
         layout.add_widget(button)
 
         label = Label(
             text=f'NA STAŁE:', 
-            font_size = font_size,
+            font_size = font_size*2,
             size_hint=(None, None), 
             size=(button_width, button_height), 
-            pos_hint={'center_x': 0.5, 'center_y': 1 - (4)*((button_height + button_spacing) / Window.height)}
+            pos_hint={'center_x': 0.5, 'center_y': 1 - (((3)*(button_height + button_spacing)-button_height+font_size*2) / Window.height)}
         )
         layout.add_widget(label)
         
@@ -129,7 +129,7 @@ class SecondPage(Screen):
             size_hint=(None, None), 
             size=(button_width/2, button_height), 
             background_color=(0, 1, 0, 1),
-            pos_hint={'center_x': 0.5 - (button_width/4/Window.width), 'center_y': 1 - (5)*((button_height + button_spacing) / Window.height)}
+            pos_hint={'center_x': 0.5 - (button_width/4/Window.width), 'center_y': 1 - (3)*((button_height + button_spacing) / Window.height)}
         )
         button.bind(on_press=self.req_forserelay_on)
         layout.add_widget(button)
@@ -140,7 +140,7 @@ class SecondPage(Screen):
             size_hint=(None, None), 
             size=(button_width/2, button_height), 
             background_color=(1, 0, 0, 1), 
-            pos_hint={'center_x': 0.5 + (button_width/4/Window.width), 'center_y': 1 - (5)*((button_height + button_spacing) / Window.height)}
+            pos_hint={'center_x': 0.5 + (button_width/4/Window.width), 'center_y': 1 - (3)*((button_height + button_spacing) / Window.height)}
         )
         button.bind(on_press=self.req_forserelay_off)
         layout.add_widget(button)
@@ -151,7 +151,7 @@ class SecondPage(Screen):
             size_hint=(None, None), 
             size=(button_width, button_height), 
             background_color=(1, 0, 0, 1), 
-            pos_hint={'center_x': 0.5, 'center_y': 1 - (6)*((button_height + button_spacing) / Window.height)}
+            pos_hint={'center_x': 0.5, 'center_y': 1 - (4)*((button_height + button_spacing) / Window.height)}
         )
         button.bind(on_press=self.switch_to_main_page)
         layout.add_widget(button)
@@ -162,7 +162,7 @@ class SecondPage(Screen):
             size_hint=(None, None), 
             size=(button_width, button_height), 
             color = "ff0000",
-            pos_hint={'center_x': 0.5, 'center_y': 1 - (7)*((button_height + button_spacing) / Window.height)}
+            pos_hint={'center_x': 0.5, 'center_y': 1 - (5)*((button_height + button_spacing) / Window.height)}
         )
         layout.add_widget(self.res_label)
         
