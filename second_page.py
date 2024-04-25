@@ -8,7 +8,7 @@ from kivy.core.window import Window
 
 import requests
 
-SERVER = "http://192.168.0.115"
+SERVER = "http://192.168.1.60"
 SCALE = 4
 class My_TextInput1(TextInput):
     def __init__(self, **kwargs):

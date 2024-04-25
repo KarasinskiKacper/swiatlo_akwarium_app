@@ -6,7 +6,7 @@ from kivy.uix.screenmanager import Screen
 
 import requests
 
-SERVER = "http://192.168.0.115"
+SERVER = "http://192.168.1.60"
 
 SCALE = 4
 class MainPage(Screen):
