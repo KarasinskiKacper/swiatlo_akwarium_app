@@ -18,9 +18,9 @@ class MainPage(Screen):
         
         # Create four buttons
         button_height = 300 #/SCALE
-        button_width = 800  #/SCALE
+        button_width = 700  #/SCALE
         button_spacing = 128#/SCALE
-        font_size = 96      #/SCALE
+        font_size = 72     #/SCALE
         
         button = Button(
             text="TRYB AUTO", 

@@ -49,9 +49,9 @@ class SecondPage(Screen):
         
         # Create four buttons
         button_height = 300 #/SCALE
-        button_width = 800  #/SCALE
+        button_width = 700  #/SCALE
         button_spacing = 128#/SCALE
-        font_size = 96      #/SCALE
+        font_size = 72      #/SCALE
 
         label = Label(
             text=f'DO GODZINY:', 
@@ -67,7 +67,7 @@ class SecondPage(Screen):
             font_size = button_height/2,
             size_hint=(None, None), 
             size=(button_width/3, button_height), 
-            pos_hint={'center_x': 0.38, 'center_y': 1 - (1)*((button_height + button_spacing) / Window.height)},
+            pos_hint={'center_x': 0.34, 'center_y': 1 - (1)*((button_height + button_spacing) / Window.height)},
             halign = 'center',
             padding_y = [button_height / 2 - (button_height / 4), 0],
             text = ''
@@ -84,7 +84,7 @@ class SecondPage(Screen):
             font_size = button_height/2,
             size_hint=(None, None), 
             size=(button_width/3, button_height), 
-            pos_hint={'center_x': 0.62, 'center_y': 1 - (1)*((button_height + button_spacing) / Window.height)},
+            pos_hint={'center_x': 0.66, 'center_y': 1 - (1)*((button_height + button_spacing) / Window.height)},
             halign = 'center',
             padding_y = [button_height / 2 - (button_height / 4), 0],
             text = ''
