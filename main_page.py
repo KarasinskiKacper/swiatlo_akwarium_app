@@ -6,7 +6,7 @@ from kivy.uix.screenmanager import Screen
 
 import requests
 
-SERVER = "http://192.168.1.61"
+SERVER = "http://192.168.0.115"
 
 class MainPage(Screen):
     def __init__(self, **kwargs):
@@ -60,7 +60,7 @@ class MainPage(Screen):
         
         self.add_widget(layout)
         try:
-            res = requests.get(SERVER + "/date", timeout=.1).text
+            res = requests.get(SERVER + "/date", timeout=2.5).text
         except:
             res = "500"
         self.label = Label(
@@ -75,7 +75,7 @@ class MainPage(Screen):
     
     def auto(self, instance):
         try:
-            res = requests.get(SERVER + "/auto", timeout=.1).text
+            res = requests.get(SERVER + "/auto", timeout=2.5).text
         except:
             res = "500"
         self.label.text = res
