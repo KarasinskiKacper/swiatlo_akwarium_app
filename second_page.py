@@ -9,7 +9,7 @@ from kivy.core.window import Window
 import requests
 
 SERVER = "http://192.168.0.115"
-SCALE = 4
+
 class My_TextInput1(TextInput):
     def __init__(self, **kwargs):
         super(My_TextInput1, self).__init__(**kwargs) 
@@ -48,10 +48,10 @@ class SecondPage(Screen):
         layout = RelativeLayout()
         
         # Create four buttons
-        button_height = 300/SCALE
-        button_width = 800/SCALE
-        button_spacing = 128/SCALE
-        font_size = 48/SCALE
+        button_height = 300
+        button_width = 800
+        button_spacing = 128
+        font_size = 48
 
         label = Label(
             text=f'DO GODZINY:', 

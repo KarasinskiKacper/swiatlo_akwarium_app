@@ -8,7 +8,7 @@ import requests
 
 SERVER = "http://192.168.0.115"
 
-SCALE = 4
+
 class MainPage(Screen):
     def __init__(self, **kwargs):
         super(MainPage, self).__init__(**kwargs)
@@ -17,10 +17,10 @@ class MainPage(Screen):
         layout = RelativeLayout()
         
         # Create four buttons
-        button_height = 300/SCALE
-        button_width = 800/SCALE
-        button_spacing = 128/SCALE
-        font_size = 48/SCALE
+        button_height = 300
+        button_width = 800
+        button_spacing = 128
+        font_size = 48
         
         button = Button(
             text="TRYB AUTO", 
