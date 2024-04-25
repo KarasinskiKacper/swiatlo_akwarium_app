@@ -20,9 +20,11 @@ class MainPage(Screen):
         button_height = 300
         button_width = 800
         button_spacing = 128
+        font_size = 48
         
         button = Button(
             text="TRYB AUTO", 
+            font_size = font_size,
             size_hint=(None, None), 
             size=(button_width, button_height), 
             background_color=(1, 1, 0, 1), 
@@ -33,6 +35,7 @@ class MainPage(Screen):
 
         button = Button(
             text=f'WŁĄCZ / WYŁĄCZ ŚWIATŁO', 
+            font_size = font_size,
             size_hint=(None, None), 
             size=(button_width, button_height), 
             background_color=(1, 0, 0, 1),
@@ -52,6 +55,7 @@ class MainPage(Screen):
         
         button = Button(
             text=f'ZMIANA KOLORU', 
+            font_size = font_size,
             size_hint=(None, None), 
             size=(button_width, button_height), 
             background_color=(0, 0, 1, 1),  
@@ -67,6 +71,7 @@ class MainPage(Screen):
             res = "Błąd połączenia z mikrokontrolerem."
         self.label = Label(
             text=res,
+            font_size = font_size,
             size_hint=(None, None),
             size=(200, 50),
             pos_hint={'center_x': 0.5, 'y': 0.1},  # Start label below the screen

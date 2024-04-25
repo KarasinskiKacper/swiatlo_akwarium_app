@@ -51,10 +51,11 @@ class SecondPage(Screen):
         button_height = 300
         button_width = 800
         button_spacing = 128
+        font_size = 48
 
         label = Label(
             text=f'DO GODZINY:', 
-            font_size = button_height,
+            font_size = font_size,
             size_hint=(None, None), 
             size=(button_width, button_height), 
             pos_hint={'center_x': 0.5, 'center_y': 1 - (1)*((button_height + button_spacing) / Window.height)}
@@ -63,7 +64,7 @@ class SecondPage(Screen):
         
         self.input_box1 = My_TextInput1(
             multiline=False, 
-            font_size = button_height/2,
+            font_size = font_size,
             size_hint=(None, None), 
             size=(button_width/3, button_height), 
             pos_hint={'center_x': 0.42, 'center_y': 1 - (2)*((button_height + button_spacing) / Window.height)},
@@ -74,13 +75,13 @@ class SecondPage(Screen):
         layout.add_widget(self.input_box1)
         label = Label(
             text=f':', 
-            font_size = button_height,
+            font_size = font_size,
             pos_hint={'center_x': 0.5, 'center_y': 1 - (2)*((button_height + button_spacing) / Window.height)}
         )
         layout.add_widget(label)
         self.input_box2 = My_TextInput2(
             multiline=False, 
-            font_size = button_height/2,
+            font_size = font_size,
             size_hint=(None, None), 
             size=(button_width/3, button_height), 
             pos_hint={'center_x': 0.58, 'center_y': 1 - (2)*((button_height + button_spacing) / Window.height)},
@@ -93,6 +94,7 @@ class SecondPage(Screen):
 
         button = Button(
             text=f'ON', 
+            font_size = font_size,
             size_hint=(None, None), 
             size=(button_width/2, button_height), 
             background_color=(0, 1, 0, 1),
@@ -103,6 +105,7 @@ class SecondPage(Screen):
         
         button = Button(
             text=f'OFF', 
+            font_size = font_size,
             size_hint=(None, None), 
             size=(button_width/2, button_height), 
             background_color=(1, 0, 0, 1), 
@@ -113,7 +116,7 @@ class SecondPage(Screen):
 
         label = Label(
             text=f'NA STAŁE:', 
-            font_size = button_height,
+            font_size = font_size,
             size_hint=(None, None), 
             size=(button_width, button_height), 
             pos_hint={'center_x': 0.5, 'center_y': 1 - (4)*((button_height + button_spacing) / Window.height)}
@@ -122,6 +125,7 @@ class SecondPage(Screen):
         
         button = Button(
             text=f'ON', 
+            font_size = font_size,
             size_hint=(None, None), 
             size=(button_width/2, button_height), 
             background_color=(0, 1, 0, 1),
@@ -132,6 +136,7 @@ class SecondPage(Screen):
         
         button = Button(
             text=f'OFF', 
+            font_size = font_size,
             size_hint=(None, None), 
             size=(button_width/2, button_height), 
             background_color=(1, 0, 0, 1), 
@@ -142,6 +147,7 @@ class SecondPage(Screen):
         
         button = Button(
             text=f'POWRÓT', 
+            font_size = font_size,
             size_hint=(None, None), 
             size=(button_width, button_height), 
             background_color=(1, 0, 0, 1), 
@@ -152,7 +158,7 @@ class SecondPage(Screen):
         
         self.res_label = Label(
             text="", 
-            font_size = button_height/3,
+            font_size = font_size,
             size_hint=(None, None), 
             size=(button_width, button_height), 
             color = "ff0000",
