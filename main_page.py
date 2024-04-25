@@ -8,6 +8,8 @@ import requests
 
 SERVER = "http://192.168.0.115"
 
+SCALE = 3.5 #TODO remove
+
 class MainPage(Screen):
     def __init__(self, **kwargs):
         super(MainPage, self).__init__(**kwargs)
@@ -16,9 +18,9 @@ class MainPage(Screen):
         layout = RelativeLayout()
         
         # Create four buttons
-        button_height = 60
-        button_width = 300
-        button_spacing = 16
+        button_height = 300/SCALE
+        button_width = 800/SCALE
+        button_spacing = 16/SCALE
         
         button = Button(
             text="TRYB AUTO", 
@@ -40,29 +42,30 @@ class MainPage(Screen):
         button.bind(on_press=self.switch_to_second_page)
         layout.add_widget(button)
 
-        button = Button(
-            text=f'Button 3', 
-            size_hint=(None, None), 
-            size=(button_width, button_height), 
-            background_color=(1, 0, 0, 1),  # Red color
-            pos_hint={'center_x': 0.5, 'center_y': 1 - (3)*((button_height + button_spacing) / Window.height)}
-        )
-        layout.add_widget(button)
+        # button = Button(
+        #     text=f'Button 3', 
+        #     size_hint=(None, None), 
+        #     size=(button_width, button_height), 
+        #     background_color=(1, 0, 0, 1),  # Red color
+        #     pos_hint={'center_x': 0.5, 'center_y': 1 - (3)*((button_height + button_spacing) / Window.height)}
+        # )
+        # layout.add_widget(button)
         
         button = Button(
-            text=f'Button 4', 
+            text=f'ZMIANA KOLORU', 
             size_hint=(None, None), 
             size=(button_width, button_height), 
-            background_color=(1, 0, 0, 1),  # Red color
-            pos_hint={'center_x': 0.5, 'center_y': 1 - (4)*((button_height + button_spacing) / Window.height)}
+            background_color=(0, 0, 1, 1),  
+            pos_hint={'center_x': 0.5, 'center_y': 1 - (3)*((button_height + button_spacing) / Window.height)}
         )
+        button.bind(on_press=self.tap)
         layout.add_widget(button)
         
         self.add_widget(layout)
         try:
             res = requests.get(SERVER + "/date", timeout=2.5).text
         except:
-            res = "500"
+            res = "Błąd połączenia z mikrokontrolerem."
         self.label = Label(
             text=res,
             size_hint=(None, None),
@@ -75,7 +78,15 @@ class MainPage(Screen):
     
     def auto(self, instance):
         try:
-            res = requests.get(SERVER + "/auto", timeout=2.5).text
+            requests.get(SERVER + "/auto", timeout=2.5)
+            res = "Przywrócono tryb automatyczny"
+        except:
+            res = "500"
+        self.label.text = res
+    def tap(self, instance):
+        try:
+            requests.get(SERVER + "/192.168.0.115/relaytap", timeout=2.5)
+            res = "Światło powinno zmienić kolor"
         except:
             res = "500"
         self.label.text = res

@@ -108,6 +108,7 @@ class SecondPage(Screen):
             background_color=(1, 0, 0, 1), 
             pos_hint={'center_x': 0.5 + (button_width/4/Window.width), 'center_y': 1 - (3)*((button_height + button_spacing) / Window.height)}
         )
+        button.bind(on_press=self.req_forserelayto_off)
         layout.add_widget(button)
 
         label = Label(
@@ -126,6 +127,7 @@ class SecondPage(Screen):
             background_color=(0, 1, 0, 1),
             pos_hint={'center_x': 0.5 - (button_width/4/Window.width), 'center_y': 1 - (5)*((button_height + button_spacing) / Window.height)}
         )
+        button.bind(on_press=self.req_forserelay_on)
         layout.add_widget(button)
         
         button = Button(
@@ -135,6 +137,7 @@ class SecondPage(Screen):
             background_color=(1, 0, 0, 1), 
             pos_hint={'center_x': 0.5 + (button_width/4/Window.width), 'center_y': 1 - (5)*((button_height + button_spacing) / Window.height)}
         )
+        button.bind(on_press=self.req_forserelay_off)
         layout.add_widget(button)
         
         button = Button(
@@ -148,7 +151,7 @@ class SecondPage(Screen):
         layout.add_widget(button)
         
         self.res_label = Label(
-            text="res", 
+            text="", 
             font_size = button_height/3,
             size_hint=(None, None), 
             size=(button_width, button_height), 
@@ -164,11 +167,39 @@ class SecondPage(Screen):
         self.parent.current = 'main'
 
     def req_forserelayto_on(self, instance):
+        if len(self.input_box1.text) == 2 and len(self.input_box2.text) == 2:
+            try:
+                requests.get(f"{SERVER}/forserelayto?power=on&time={self.input_box1.text}{self.input_box2.text}", timeout=2.5)
+                res = f"Światło włączone do {self.input_box1.text}:{self.input_box2.text}"
+            except:
+                res = "Błąd połączenia z mikrokontrolerem."
+        else: 
+            res = "Podaj godzinę"
+        self.res_label.text = str(res)
+    def req_forserelayto_off(self, instance):
+        if len(self.input_box1.text) == 2 and len(self.input_box2.text) == 2:
+            try:
+                requests.get(f"{SERVER}/forserelayto?power=off&time={self.input_box1.text}{self.input_box2.text}", timeout=2.5)
+                res = f"Światło wyłączone do {self.input_box1.text}:{self.input_box2.text}"
+            except:
+                res = "Błąd połączenia z mikrokontrolerem."
+            
+        else: 
+            res = "Podaj godzinę"
+        self.res_label.text = str(res)
+    def req_forserelay_on(self, instance):
         try:
-            res = requests.get(f"{SERVER}/forserelayto?power=on&time={self.input_box1}{self.input_box2}", timeout=2.5).status_code
-            res = requests.get(f"{SERVER}/date", timeout=2.5).status_code
+            requests.get(f"{SERVER}/forserelayto?power=on", timeout=2.5)
+            res = "Światło włączone na stałe"
         except:
             res = "Błąd połączenia z mikrokontrolerem."
-        self.res_label.text = str(res)
+        self.res_label.text = res
+    def req_forserelay_off(self, instance):
+        try:
+            requests.get(f"{SERVER}/forserelayto?power=off", timeout=2.5)
+            res = "Światło wyłączone na stałe"
+        except:
+            res = "Błąd połączenia z mikrokontrolerem."
+        self.res_label.text = res
 
     
