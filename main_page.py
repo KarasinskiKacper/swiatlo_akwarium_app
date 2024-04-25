@@ -17,8 +17,8 @@ class MainPage(Screen):
         layout = RelativeLayout()
         
         # Create four buttons
-        button_height = 300 #/SCALE
-        button_width = 700  #/SCALE
+        button_height = 250 #/SCALE
+        button_width = 800  #/SCALE
         button_spacing = 128#/SCALE
         font_size = 72     #/SCALE
         
