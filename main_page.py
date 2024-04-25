@@ -68,12 +68,13 @@ class MainPage(Screen):
         try:
             res = requests.get(SERVER + "/date", timeout=2.5).text
         except:
-            res = "Błąd połączenia\n z mikrokontrolerem."
+            res = "Błąd połączenia\nz mikrokontrolerem."
         self.label = Label(
             text=res,
             font_size = font_size,
             size_hint=(None, None),
             size=(200, 50),
+            halign = 'center',
             pos_hint={'center_x': 0.5, 'y': 0.1},  # Start label below the screen
         )
         layout.add_widget(self.label)

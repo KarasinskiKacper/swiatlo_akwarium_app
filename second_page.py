@@ -161,6 +161,7 @@ class SecondPage(Screen):
             font_size = font_size,
             size_hint=(None, None), 
             size=(button_width, button_height), 
+            halign = 'center',
             color = "ff0000",
             pos_hint={'center_x': 0.5, 'center_y': 1 - (((5)*(button_height + button_spacing)-font_size) / Window.height)}
         )
@@ -178,7 +179,7 @@ class SecondPage(Screen):
                 requests.get(f"{SERVER}/forserelayto?power=on&time={self.input_box1.text}{self.input_box2.text}", timeout=2.5)
                 res = f"Światło włączone do {self.input_box1.text}:{self.input_box2.text}"
             except:
-                res = "Błąd połączenia\n z mikrokontrolerem."
+                res = "Błąd połączenia\nz mikrokontrolerem."
         else: 
             res = "Podaj godzinę"
         self.res_label.text = str(res)
@@ -188,7 +189,7 @@ class SecondPage(Screen):
                 requests.get(f"{SERVER}/forserelayto?power=off&time={self.input_box1.text}{self.input_box2.text}", timeout=2.5)
                 res = f"Światło wyłączone do {self.input_box1.text}:{self.input_box2.text}"
             except:
-                res = "Błąd połączenia\n z mikrokontrolerem."
+                res = "Błąd połączenia\nz mikrokontrolerem."
             
         else: 
             res = "Podaj godzinę"
@@ -198,14 +199,14 @@ class SecondPage(Screen):
             requests.get(f"{SERVER}/forserelayto?power=on", timeout=2.5)
             res = "Światło włączone na stałe"
         except:
-            res = "Błąd połączenia\n z mikrokontrolerem."
+            res = "Błąd połączenia\nz mikrokontrolerem."
         self.res_label.text = res
     def req_forserelay_off(self, instance):
         try:
             requests.get(f"{SERVER}/forserelayto?power=off", timeout=2.5)
             res = "Światło wyłączone na stałe"
         except:
-            res = "Błąd połączenia\n z mikrokontrolerem."
+            res = "Błąd połączenia\nz mikrokontrolerem."
         self.res_label.text = res
 
     
