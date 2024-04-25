@@ -51,7 +51,7 @@ class SecondPage(Screen):
         button_height = 250 #/SCALE
         button_width = 800  #/SCALE
         button_spacing = 128#/SCALE
-        font_size = 72      #/SCALE
+        font_size = 68      #/SCALE
 
         label = Label(
             text=f'DO GODZINY:', 
