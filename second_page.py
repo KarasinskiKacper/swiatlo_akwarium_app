@@ -49,7 +49,7 @@ class SecondPage(Screen):
         
         # Create four buttons
         button_height = 250 #/SCALE
-        button_width = 800  #/SCALE
+        button_width = 900  #/SCALE
         button_spacing = 128#/SCALE
         font_size = 68      #/SCALE
 
