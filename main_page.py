@@ -90,7 +90,7 @@ class MainPage(Screen):
         self.label.text = res
     def tap(self, instance):
         try:
-            requests.get(SERVER + "/192.168.0.115/relaytap", timeout=2.5)
+            requests.get(SERVER + "/relaytap", timeout=2.5)
             res = "Światło powinno zmienić kolor"
         except:
             res = "500"

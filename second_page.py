@@ -196,14 +196,14 @@ class SecondPage(Screen):
         self.res_label.text = str(res)
     def req_forserelay_on(self, instance):
         try:
-            requests.get(f"{SERVER}/forserelayto?power=on", timeout=2.5)
+            requests.get(f"{SERVER}/forserelay?power=off", timeout=2.5)
             res = "Światło włączone na stałe"
         except:
             res = "Błąd połączenia\nz mikrokontrolerem."
         self.res_label.text = res
     def req_forserelay_off(self, instance):
         try:
-            requests.get(f"{SERVER}/forserelayto?power=off", timeout=2.5)
+            requests.get(f"{SERVER}/forserelay?power=off", timeout=2.5)
             res = "Światło wyłączone na stałe"
         except:
             res = "Błąd połączenia\nz mikrokontrolerem."
